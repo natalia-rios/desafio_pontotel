@@ -31,7 +31,6 @@ class User(UserMixin, db.Model):
 
     return user
 
-
 class OAuth(OAuthConsumerMixin, db.Model):
   __table_args__ = (db.UniqueConstraint("provider", "provider_user_id"),)
   provider_user_id = db.Column(db.String(256), nullable = False)

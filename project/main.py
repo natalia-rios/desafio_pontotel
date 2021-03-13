@@ -4,10 +4,11 @@ from . import db
 from __init__ import create_app
 
 main = Blueprint('main', __name__)
+create_app()
+if __name__ == "__main__":
+  app.run(5000, threaded=True)
 
 @main.route('/')
-app = create_app()
-app.run(threaded=True, port=5000)
 def index():
   return render_template('index.html')
 

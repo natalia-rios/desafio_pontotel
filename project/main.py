@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template 
 from flask_login import login_required, current_user
 from . import db 
-from project import db, create_app
+from project.__init__ import create_app
 from flask import Flask
 
-app = Flask(__name__)
+app = create_app()
 
 main = Blueprint('main', __name__)
 

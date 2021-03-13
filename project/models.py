@@ -25,20 +25,6 @@ class User(UserMixin, db.Model):
   def __repr__(self):
       return 'User {}'.format(self.username)
 
-  def get_reset_token(self, expires=500):
-    return jwt.encode(
-      {'reset_password': self.username, 'exp': time() + expires},
-      os.getenv('SECRET_KEY', 'random_key'), algorithm='HS256')
-
-  @staticmethod
-  def verify_reset_token(token):
-    try:
-      username = jwt.decode(token, os.getenv('SECRET_KEY', 'random_key'), 
-                              algorithm='HS256')['reset_password']
-    except:
-      return
-    return User.query.filter_by(username = username).first()    
-
   @staticmethod
   def verify_email(email):
     user = User.query.filter_by(email=email).first()

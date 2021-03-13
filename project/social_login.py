@@ -23,11 +23,11 @@ google_bp = make_google_blueprint(storage = SQLAlchemyStorage(OAuth, db.session,
 @oauth_authorized.connect_via(github_blueprint)
 def github_logged_in(blueprint, token):
     if not token:
-        flash("Failed to log in with GitHub.", category = "error")
+        flash("Não foi possível o login com Github.", category = "error")
         return
     resp = blueprint.session.get("/user")
     if not resp.ok:
-        msg = "Failed to fecth user info from GitHub."
+        msg = "Falha ao coletar informações do usuário do Github."
         flash(msg, category= "error")
         return
 
@@ -81,11 +81,11 @@ def github_error(blueprint, message, response):
 @oauth_authorized.connect_via(google_blueprint)
 def google_logged_in(blueprint, token):
     if not token:
-        flask("Failed to log in.", category="error")
+        flask("Não foi possível fazer login com o Google.", category="error")
         return 
     resp = blueprint.session.get("/oauth2/v2/userinfo")
     if not resp.ok:
-        msg = "Failed to fetch user info."
+        msg = "Falha ao coletar informações do usuário do Google."
         flash(msg, category="error")
         return
 

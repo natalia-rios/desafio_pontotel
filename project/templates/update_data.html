@@ -4,57 +4,58 @@
 
 <div class="container">
 
-  <aside class="col col-sm-5">
-    <div class="card">
-      <article class="card-body">
-        <h4 class="card-title mb-4 mt-1 text-center">Atualizar dados cadastrais</h4>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
+<aside class="col col-sm-5">
+<div class="card">
+<article class="card-body">
+<h4 class="card-title mb-4 mt-1 text-center">Atualizar dados cadastrais</h4>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
 
-        {% endif %}
-        {% endwith %}
-        <form method="POST" action="/update">
-          <div class="username">
-              <input name="username" class="form-control" placeholder="Nome" type="text" autofocus="">  
-          </div>
-          <div class="email">
-              <input name="email" class="form-control" placeholder="e-mail" type="email" autofocus="">
-          </div>
-          <div class="country">
-            <input name="country" class="form-control" placeholder="País" type="text" autofocus="">  
-        </div>
-        <div class="state">
-            <input name="state" class="form-control" placeholder="Estado" type="text" autofocus="">
-        </div>
-        <div class="city">
-          <input name="city" class="form-control" placeholder="Município" type="text" autofocus="">
-      </div>
-      <div class="zipcode">
-        <input name="CEP" class="form-control" placeholder="CEP" type="text" autofocus="">
-    </div>
-    <div class="street">
-      <input name="rua" class="form-control" placeholder="Rua" type="text">  
-  </div>
-  <div class="number">
-    <input name="numero" class="form-control" placeholder="Número" type="text">  
+{% endif %}
+{% endwith %}
+<form method="POST" action="/update">
+<div class="username">
+    <input name="username" class="form-control" placeholder="Nome" type="form" autofocus="">  
+</div>
+<p></p>
+<div class="email">
+    <input name="email" class="form-control" placeholder="e-mail" type="email" autofocus="">
+</div>
+<div class="country">
+  <input name="country" class="form-control" placeholder="País" type="text" autofocus="">  
+</div>
+<div class="state">
+  <input name="state" class="form-control" placeholder="Estado" type="text" autofocus="">
+</div>
+<div class="city">
+<input name="city" class="form-control" placeholder="Município" type="text" autofocus="">
+</div>
+<div class="zipcode">
+<input name="CEP" class="form-control" placeholder="CEP" type="text" autofocus="">
+</div>
+<div class="street">
+<input name="rua" class="form-control" placeholder="Rua" type="text">  
+</div>
+<div class="number">
+<input name="numero" class="form-control" placeholder="Número" type="text">  
 </div>
 <div class="complement">
-  <input name="complemento" class="form-control" placeholder="Complemento" type="text">  
+<input name="complemento" class="form-control" placeholder="Complemento" type="text">  
 </div>
 <div class="PIS">
-  <input name="PIS" class="form-control" placeholder="PIS" type="text">  
+<input name="PIS" class="form-control" placeholder="PIS" type="text">  
 </div>
 <div class="CPF">
-    <input name="CPF" class="form-control" placeholder="CPF" type="text">  
+<input name="CPF" class="form-control" placeholder="CPF" type="text">  
 </div>
 <div class="password">
-  <input name="password" class="form-control" placeholder="********" type="password">  
+<input name="password" class="form-control" placeholder="********" type="password">  
 </div>
-          <button type="submit" class="btn btn-info btn-block">Atualizar</button>
-        </form>
-      </div>
+<button type="submit" class="btn btn-info btn-block">Atualizar</button>
+</form>
+</div>
 
-    </div>
-      </article>
-  </aside>
+</div>
+</article>
+</aside>
 {% endblock %}

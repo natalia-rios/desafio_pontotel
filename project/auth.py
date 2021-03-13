@@ -20,60 +20,40 @@ def login_post():
   password = request.form.get('password')
   remember = True if request.form.get('remember') else False
 
-  user = User.query.filter_by(email=email).first()
-    
-  if not user or not check_password_hash(user.password, password):
-    flash('Seu email/PIS/CPF ou senha estão incorretos. Digite as informações corretamente.', 'danger')
+  user= User.query.filter_by(email=email).first()
+  CPF_login = User.query.filter_by(CPF=email).first()
+  PIS_login = User.query.filter_by(PIS=email).first()
+  
+  login_errors = False
+
+  if (not user and not CPF_login and not PIS_login):
+    flash('Seu email/PIS/CPF está incorreto. Digite as informações corretamente.', 'danger')
+    login_errors = True
+  if CPF_login:
+    if not check_password_hash(CPF_login.password, password):
+      flash('Sua senha está incorreta. Digite as informações corretamente.', 'danger')
+      login_errors = True
+  if user:
+    if not check_password_hash(user.password, password):
+      flash('Sua senha está incorreta. Digite as informações corretamente.', 'danger')
+      login_errors = True
+  if PIS_login:
+    if not check_password_hash(PIS_login.password, password):
+      flash('Sua senha está incorreta. Digite as informações corretamente.', 'danger')
+      login_errors = True
+  
+  if login_errors:
     return redirect(url_for('auth.login'))
 
-  login_user(user, remember=remember)
+  if user and not login_errors:
+    login_user(user, remember=remember)
+  if CPF_login and not login_errors:
+    login_user(CPF_login, remember=remember)
+  if PIS_login and not login_errors:
+    login_user(PIS_login, remember=remember)
+
 
   return redirect(url_for('main.profile')) 
-
-def send_email(user):
-  token = user.get_reset_token()
-
-  msg = Message()
-  msg.subject = "Login System: Password Reset Request"
-  msg.sender = 'username@gmail.com'
-  msg.recipients = [user.email]
-  msg.html = render_template('reset_pwd.html', user = user, token = token)
-
-  mail.send(msg)
-
-@auth.route('/reset', methods=['GET','POST'])
-def reset():
-  if request.method == "GET":
-    return render_template('reset.html')
-
-  if request.method == "POST":
-    email = request.form.get('email')
-    user = User.verify_email(email)
-
-    if user:
-      send_email(user)
-      flash('An email has been sent with instructions to reset your password.', 'info')
-    return redirect(url_for('auth.login')) 
-  
-@auth.route('/reset/<token>', methods = ['GET', 'POST'])
-def reset_verified(token):
-  user = User.verify_reset_token(token)
-
-  if not user:
-    flash('User not found or token has expired', 'warning')
-    return redirect(url_for('auth.reset'))
-
-  password = request.form.get('password')
-  # if len(password or ()) < 8:
-  #   flash('Your password needs to be at least 8 characters', 'error')     
-  if password:
-    hashed_password = generate_password_hash(password, method='sha256')
-    user.password = hashed_password
-
-    db.session.commit()
-    flash('Your password has been updated! You are now able to log in', 'success')
-    return redirect(url_for('auth.login'))
-  return render_template('reset_password.html')    
 
 @auth.route('/signup')
 def signup():
@@ -92,10 +72,11 @@ def signup_post():
   complemento = request.form.get('complemento')
   CPF = request.form.get('CPF')
   PIS = request.form.get('PIS')
+  CEP = request.form.get('CEP')
 
   user = User.query.filter_by(email=email).first()
-  CPF = User.query.filter_by(CPF=CPF).first()
-  PIS = User.query.filter_by(PIS=PIS).first()
+  CPF_flash = User.query.filter_by(CPF=CPF).first()
+  PIS_flash = User.query.filter_by(PIS=PIS).first()
 
   errors = False
 
@@ -103,18 +84,18 @@ def signup_post():
     flash('Endereço de email já existe')
     errors = True
   
-  if CPF:
+  if CPF_flash:
     flash('CPF já existe')
     errors = True
 
-  if PIS:
+  if PIS_flash:
     flash('PIS já existe')
     errors = True
 
   if errors:
     return redirect(url_for('auth.signup'))
   
-  new_user = User(username = username, email = email, password = generate_password_hash(password, method='sha256'), city = city, country = country, state = state, rua = rua, numero = numero, complemento = complemento, CPF = CPF, PIS = PIS)
+  new_user = User(username = username, email = email, password = generate_password_hash(password, method='sha256'), city = city, country = country, state = state, rua = rua, numero = numero, complemento = complemento, CPF = CPF, PIS = PIS, CEP = CEP)
 
   db.session.add(new_user)
   db.session.commit()

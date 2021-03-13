@@ -2,6 +2,9 @@ from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from . import db 
 from project import db, create_app
+from flask import Flask
+
+app = Flask(__name__)
 
 main = Blueprint('main', __name__)
 
@@ -17,4 +20,4 @@ def profile():
 db.create_all(app=create_app())
 
 if __name__ == "__main__":
-  flask run
+  app.run()

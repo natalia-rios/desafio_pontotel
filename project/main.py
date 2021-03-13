@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template 
 from flask_login import login_required, current_user
 from . import db 
-from __init__ import create_app
 
 @main.route('/')
 def index():
@@ -12,5 +11,4 @@ def index():
 def profile():
   return render_template('profile.html', username = current_user.username, email = current_user.email, password = current_user.password, country = current_user.country, state = current_user.state, city = current_user.city, CEP = current_user.CEP, rua = current_user.rua, numero = current_user.numero, complemento = current_user.complemento, CPF = current_user.CPF, PIS = current_user.PIS)
 
-app = create_app()
-app.run(debug=True) 
+main.run(debug=True) 

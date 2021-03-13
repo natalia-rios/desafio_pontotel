@@ -1,10 +1,13 @@
 from flask import Blueprint, render_template 
 from flask_login import login_required, current_user
 from . import db 
+from __init__ import create_app
 
 main = Blueprint('main', __name__)
 
 @main.route('/')
+app = create_app()
+app.run(threaded=True, port=5000)
 def index():
   return render_template('index.html')
 

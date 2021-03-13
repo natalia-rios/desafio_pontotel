@@ -52,6 +52,3 @@ def create_app():
   app.register_blueprint(main_blueprint)
 
   return app
-
-app = create_app()
-app.run(threaded=True, port=5000)

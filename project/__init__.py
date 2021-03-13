@@ -48,7 +48,7 @@ def create_app():
   app.register_blueprint(google_blueprint, url_prefix = "/login")
 
   #non-auth parts
-  from .main import main as main_blueprint
+  from ../main import main as main_blueprint
   app.register_blueprint(main_blueprint)
 
   return app

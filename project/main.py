@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template 
 from flask_login import login_required, current_user
-from project import create_app
+from project import create_app, db
 from flask import Flask
 
 app = create_app()
+db.create_all(app)
 
+app.register_blueprint(main_blueprint)
 main = Blueprint('main', __name__)
 
 @main.route('/')

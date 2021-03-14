@@ -20,7 +20,7 @@ if '__main__':
   try:
     with app.app_context():
       db.create_all()
-  except OperationalError: 
+  except: 
     None
   HOST = os.environ.get("SERVER_HOST", "localhost")
   try:

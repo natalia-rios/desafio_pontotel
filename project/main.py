@@ -22,9 +22,4 @@ if '__main__':
       db.create_all()
   except: 
     None
-  HOST = os.environ.get("SERVER_HOST", "localhost")
-  try:
-    PORT = int(os.environ.get("SERVER_PORT", "8000"))
-  except:
-    PORT = 8000
-  app.run(HOST, PORT, threaded=True)
+  app.run(127.0.0.1, 5000, threaded=True)

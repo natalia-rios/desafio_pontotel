@@ -47,4 +47,8 @@ def create_app():
   from .social_login import google_blueprint
   app.register_blueprint(google_blueprint, url_prefix = "/login")
 
+  #non-auth parts
+  main_blueprint = Blueprint('main', __name__)
+  app.register_blueprint(main_blueprint)
+
   return app

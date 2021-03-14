@@ -3,3 +3,18 @@
 <h2>Aplicação web para cadastro de usuários</h2>
 
 **Link Heroku**: https://pontotel-challenge.herokuapp.com/
+
+**Dados do cadastro:** 
+* nome
+* email
+* endereço do usuário
+* País
+* Estado
+* Município
+* CEP
+* Rua
+* Número
+* Complemento
+* CPF
+* PIS
+* Senha

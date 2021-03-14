@@ -20,10 +20,10 @@ def main(port, server):
 
   app = create_app()
   with app.app_context():
-      db.create_all()
-    HOST = os.environ.get("SERVER_HOST", "localhost")
-    try:
-      PORT = int(os.environ.get("SERVER_PORT", "5555"))
-    except ValueError:
-      PORT = 5555
-    app.run(HOST, PORT, threaded=True)
+    db.create_all()
+  HOST = os.environ.get("SERVER_HOST", "localhost")
+  try:
+    PORT = int(os.environ.get("SERVER_PORT", "5555"))
+  except ValueError:
+    PORT = 5555
+  app.run(HOST, PORT, threaded=True)

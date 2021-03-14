@@ -17,8 +17,7 @@ def profile():
 
 if '__main__':
   app = create_app()
-  with app.app_context():
-    db.create_all()
+  db.create_all()
   HOST = os.environ.get("SERVER_HOST", "localhost")
   try:
     PORT = int(os.environ.get("SERVER_PORT", "5555"))

@@ -24,4 +24,4 @@ def main(port, server):
 
 
 if __name__ == "__main__":
-  main(5000, '127.0.0.1')
+  main(5000, 127.0.0.1)

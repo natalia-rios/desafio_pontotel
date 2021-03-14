@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from project import create_app, db
 from flask import Flask
 
-def main():
+def main(port, server):
   @main.route('/')
   def index():
     return render_template('index.html')
@@ -18,8 +18,8 @@ def main():
 
   app.register_blueprint(main_blueprint)
   main = Blueprint('main', __name__)
-  app.run()
+  app.run(port, server, debug = True)
 
 
 if __name__ == "__main__":
-  main()
+  main(5000, '127.0.0.1')

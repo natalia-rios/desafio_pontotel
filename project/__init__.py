@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_jwt_extended import JWTManager
@@ -48,7 +48,7 @@ def create_app():
   app.register_blueprint(google_blueprint, url_prefix = "/login")
 
   #non-auth parts
-  main_blueprint = Blueprint('main', __name__)
+  from .main import main as main_blueprint
   app.register_blueprint(main_blueprint)
 
   return app

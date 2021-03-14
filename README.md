@@ -18,3 +18,7 @@
 * CPF
 * PIS
 * Senha
+
+**Login**: Por email, CPF ou PIS + senha
+
+**Cadastro**: 

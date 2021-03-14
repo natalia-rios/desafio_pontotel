@@ -2,6 +2,7 @@ from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from project import create_app, db
 from flask import Flask
+import os
 
 main = Blueprint('main', __name__)
 
@@ -20,8 +21,9 @@ def main(port, server):
   app = create_app()
   with app.app_context():
       db.create_all()
-  app.run(port, server, debug = True)
-
-
-if __name__ == "__main__":
-  main(5000, 127.0.0.1)
+    HOST = os.environ.get("SERVER_HOST", "localhost")
+    try:
+      PORT = int(os.environ.get("SERVER_PORT", "5555"))
+    except ValueError:
+      PORT = 5555
+    app.run(HOST, PORT, threaded=True)

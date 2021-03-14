@@ -1,6 +1,6 @@
 <h1>Cadastro Usuário Web</h1>
 
-<h2>Aplicação web para cadastro de usuários</h2>
+<h2>Aplicação web para cadastro de usuários utilizando flask-login</h2>
 
 **Link Heroku**: https://pontotel-challenge.herokuapp.com/
 
@@ -19,6 +19,7 @@
 * PIS
 * Senha
 
-**Login**: Por email, CPF ou PIS + senha
+**Login**: Por email, CPF ou PIS + senha 
 
-**Cadastro**: 
+<h3>Utilização</h3>
+

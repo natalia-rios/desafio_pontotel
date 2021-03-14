@@ -25,6 +25,6 @@ if '__main__':
   HOST = os.environ.get("SERVER_HOST", "localhost")
   try:
     PORT = int(os.environ.get("SERVER_PORT", "8000"))
-  except ValueError:
+  except:
     PORT = 8000
   app.run(HOST, PORT, threaded=True)

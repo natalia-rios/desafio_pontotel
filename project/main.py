@@ -24,7 +24,7 @@ if '__main__':
     None
   HOST = os.environ.get("SERVER_HOST", "localhost")
   try:
-    PORT = int(os.environ.get("SERVER_PORT", "5000"))
+    PORT = int(os.environ.get("SERVER_PORT", "8000"))
   except ValueError:
-    PORT = 5001
+    PORT = 8000
   app.run(HOST, PORT, threaded=True)

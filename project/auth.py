@@ -189,6 +189,4 @@ def update_post():
 
   db.session.commit()
 
-  return redirect(url_for('auth.login'))
-
-  
+  return redirect(url_for('main.profile'))

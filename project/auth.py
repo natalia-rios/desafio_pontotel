@@ -27,19 +27,19 @@ def login_post():
   login_errors = False
 
   if (not user and not CPF_login and not PIS_login):
-    flash('Seu email/PIS/CPF está incorreto. Digite as informações corretamente.', 'danger')
+    flash('Seu email, PIS ou CPF esta incorreto ou nao esta cadastrado. Digite as informacoes corretamente.', 'danger')
     login_errors = True
   if CPF_login:
     if not check_password_hash(CPF_login.password, password):
-      flash('Sua senha está incorreta. Digite as informações corretamente.', 'danger')
+      flash('Sua senha esta incorreta. Digite as informacoes corretamente.', 'danger')
       login_errors = True
   if user:
     if not check_password_hash(user.password, password):
-      flash('Sua senha está incorreta. Digite as informações corretamente.', 'danger')
+      flash('Sua senha esta incorreta. Digite as informacoes corretamente.', 'danger')
       login_errors = True
   if PIS_login:
     if not check_password_hash(PIS_login.password, password):
-      flash('Sua senha está incorreta. Digite as informações corretamente.', 'danger')
+      flash('Sua senha esta incorreta. Digite as informacoes corretamente.', 'danger')
       login_errors = True
   
   if login_errors:
@@ -81,15 +81,15 @@ def signup_post():
   errors = False
 
   if user:
-    flash('Endereço de email já existe')
+    flash('Endereco de email ja existe')
     errors = True
   
   if CPF_flash:
-    flash('CPF já existe')
+    flash('CPF ja existe')
     errors = True
 
   if PIS_flash:
-    flash('PIS já existe')
+    flash('PIS ja existe')
     errors = True
 
   if errors:

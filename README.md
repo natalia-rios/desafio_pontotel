@@ -20,6 +20,3 @@
 * Senha
 
 **Login**: Por email, CPF ou PIS + senha 
-
-<h3>Utilização</h3>
-

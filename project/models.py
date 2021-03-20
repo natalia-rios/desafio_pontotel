@@ -8,19 +8,19 @@ from sqlalchemy import or_
 
 class User(UserMixin, db.Model):
 
-  id = db.Column(db.Integer, primary_key=True)
-  email = db.Column(db.String(100), unique=True)
-  password = db.Column(db.String(100))
-  username = db.Column(db.String(150))
-  city = db.Column(db.String(150))
-  country = db.Column(db.String(150))
-  state = db.Column(db.String(150))
-  CEP = db.Column(db.String(150))
-  rua = db.Column(db.String(150))
-  numero = db.Column(db.String(150))
-  complemento = db.Column(db.String(150))
-  CPF = db.Column(db.String(150), unique = True)
-  PIS = db.Column(db.String(150), unique = True)
+  id = db.Column(db.Integer, primary_key = True, nullable = False)
+  email = db.Column(db.String(100), unique = True, nullable = True)
+  password = db.Column(db.String(100), nullable = True)
+  username = db.Column(db.String(150), nullable = True)
+  city = db.Column(db.String(150), nullable = True)
+  country = db.Column(db.String(150), nullable = True)
+  state = db.Column(db.String(150), nullable = True)
+  CEP = db.Column(db.String(150), nullable = True)
+  rua = db.Column(db.String(150), nullable = True)
+  numero = db.Column(db.String(150), nullable = True)
+  complemento = db.Column(db.String(150), nullable = True)
+  CPF = db.Column(db.String(150), unique = True, nullable = True)
+  PIS = db.Column(db.String(150), unique = True, nullable = True)
 
   def __repr__(self):
       return 'User {}'.format(self.username)

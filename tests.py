@@ -47,23 +47,40 @@ class BasicTests(unittest.TestCase):
             follow_redirects=True
         )
 
+    def update(self, email):
+        return self.app.post(
+            '/update',
+            data=dict(email=email),
+            follow_redirects=True
+        )
+
     def test_main_page(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_valid_user_registration(self):
-        response = self.register('patkennedy79@gmail.com', 'FlaskIsAwesome')
+        response = self.register('nataliarios@gmail.com', 'FlaskIsAwesome')
         self.assertEqual(response.status_code, 200)
 
     def test_invalid_user_registration_duplicate_email(self):
-        response = self.register('patkennedy79@gmail.com', 'FlaskIsAwesome')
+        response = self.register('nataliarios@gmail.com', 'FlaskIsAwesome')
         self.assertEqual(response.status_code, 200)
-        response = self.register('patkennedy79@gmail.com', 'FlaskIsReallyAwesome')
+        response = self.register('nataliarios@gmail.com', 'FlaskIsReallyAwesome')
         self.assertIn(b'Endereco de email ja existe.', response.data)
 
     def test_invalid_login(self):
-        response = self.login('patkenedy79@gmail.com', 'FlaskIsAwesome')
+        response = self.login('natliarios@gmail.com', 'FlaskIsAwesome')
         self.assertIn(b'Seu email, PIS ou CPF esta incorreto ou nao esta cadastrado. Digite as informacoes corretamente.', response.data)
     
+    def test_update(self):
+        response = self.register('nataliarios@gmail.com', 'FlaskIsAwesome')
+        self.assertEqual(response.status_code, 200)
+        response = self.register('nataliasousa@gmail.com', 'FlaskIsAwesome')
+        self.assertEqual(response.status_code, 200)
+        response = self.login('nataliarios@gmail.com', 'FlaskIsAwesome')
+        self.assertEqual(response.status_code, 200)
+        response = self.update('nataliasousa@gmail.com')
+        self.assertIn(b'', response.data)
+
 if __name__ == "__main__":
     unittest.main()

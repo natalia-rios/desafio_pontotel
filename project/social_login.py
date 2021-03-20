@@ -50,14 +50,12 @@ def github_logged_in(blueprint, token):
     if current_user.is_anonymous:
         if oauth.user:
             login_user(oauth.user)
-            # flash("Successfully signed in with GitHub.", 'success')
         else:
             user = User(username = github_name)
             oauth.user = user
             db.session.add_all([user, oauth])
             db.session.commit()
             login_user(user)
-            # flash("Successfully signed in with GitHub.", 'success')
     else:
         if oauth.user:
             if current_user != oauth.user:
@@ -67,8 +65,7 @@ def github_logged_in(blueprint, token):
             oauth.user =current_user
             db.session.add(oauth)
             db.session.commit()
-            # flash("Successfully linked GitHub account.", 'success')
-
+            
     return redirect(url_for("main.profile"))                        
 
 @oauth_error.connect_via(github_blueprint)
@@ -109,7 +106,6 @@ def google_logged_in(blueprint, token):
     if current_user.is_anonymous:        
         if oauth.user:
             login_user(oauth.user)
-            # flash("Successfully signed in with Google.", 'success')
         else:
             user = User(username = google_name)
 
@@ -117,7 +113,6 @@ def google_logged_in(blueprint, token):
             db.session.add_all([user, oauth])
             db.session.commit()
             login_user(user)
-            # flash("Successfully signed in with Google.", 'success')
     else:
         if oauth.user:
             if current_user != oauth.user:
@@ -127,7 +122,6 @@ def google_logged_in(blueprint, token):
             oauth.user = current_user
             db.session.add(oauth)
             db.commit()
-            # flash("Successfully linked Google account.")
 
     return redirect(url_for("main.profile"))                        
 

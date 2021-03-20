@@ -115,8 +115,6 @@ def update():
 @auth.route('/update', methods=['POST'])
 def update_post():
 
-  #user = User.query.filter_by(email = current_user.email).first() 
-
   new_username = request.form.get('username')
   new_email = request.form.get('email')
   new_password = request.form.get('password')
@@ -137,15 +135,15 @@ def update_post():
   errors = False
 
   if check_user:
-    flash('Endereço de email já existe')
+    flash('Endereco de email ja existe')
     errors = True
   
   if check_CPF:
-    flash('CPF já existe')
+    flash('CPF ja existe')
     errors = True
 
   if check_PIS:
-    flash('PIS já existe')
+    flash('PIS ja existe')
     errors = True
 
   if errors:

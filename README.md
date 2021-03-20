@@ -20,3 +20,15 @@
 * Senha
 
 **Login**: Por email, CPF ou PIS + senha 
+
+<h3>Utilização</h3>
+
+**Clonar o repositório**: `https://github.com/natalia-rios/desafio_pontotel.git`
+
+**Selecionar a pasta**: `cd desafio_pontotel`
+
+**Instalar bibliotecas necessárias**: `pip install -r requirements.txt`
+
+**Ativar ambiente virtual**: `./.venv\Scripts\activate`
+
+**Executar aplicação**: `flask run`

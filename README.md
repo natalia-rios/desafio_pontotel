@@ -21,7 +21,7 @@
 
 **Login**: Por email, CPF ou PIS + senha 
 
-<h3>Utilização</h3>
+<h2>Utilização</h2>
 
 **Clonar o repositório**: `https://github.com/natalia-rios/desafio_pontotel.git`
 

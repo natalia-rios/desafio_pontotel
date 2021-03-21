@@ -35,14 +35,15 @@
 
 **Acessar com github:**
 *Settings -> Developer settings -> OAuth Apps
-*Crie um OAuth App e coloque o Client Id o Cliente Secret na seguinte parte do código de `social_login.py`
+*Crie um OAuth App e coloque o Client Id o Cliente Secret na seguinte parte do código de `social_login.py`:
+
 `github_blueprint = make_github_blueprint(client_id = 'xxxxxxx', client_secret = 'xxxxxxx')`
 
 **Acessar com google:**
 *Acessar o Google APIs Console - https://console.developers.google.com/apis/library?hl=pt-br
 *Selecione `Novo projeto` e siga as instruções
 *Vá para Credentials -> Create Credentials -> OAuth client ID -> Selecionar `Web application`
-*Siga as instruções e coloque o Client Id o Cliente Secret na seguinte parte do código de `social_login.py`
+*Siga as instruções e coloque o Client Id o Cliente Secret na seguinte parte do código de `social_login.py`:
 
 `google_blueprint = make_google_blueprint(client_id= "xxxxxxxx", client_secret= "xxxxxxxx",  scope=[`
        `"openid",`
@@ -51,4 +52,5 @@
    `]`
 `)`
 
-**Executar aplicação**: `flask run`
+<h3>Executar aplicação**:</h3>
+`flask run`

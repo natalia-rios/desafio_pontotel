@@ -34,9 +34,9 @@
 <h3>Para utilizar login por Github e Google:</h3>
 
 **Acessar com github:**
-* Settings -> Developer settings -> OAuth Apps
+* Acesse Settings -> Developer settings -> OAuth Apps
 
- Crie um OAuth App e coloque o Client Id o Cliente Secret na seguinte parte do código de _social_login.py_:
+* Crie um OAuth App e coloque o Client Id o Cliente Secret na seguinte parte do código de _social_login.py_:
 
 `github_blueprint = make_github_blueprint(client_id = 'xxxxxxx', client_secret = 'xxxxxxx')`
 
@@ -45,7 +45,7 @@
 
 * Selecione _Novo projeto_ e siga as instruções
 
-* Vá para Credentials -> Create Credentials -> OAuth client ID -> Selecionar _Web application_
+* Acesse Credentials -> Create Credentials -> OAuth client ID -> Selecionar _Web application_
 
 * Siga as instruções e coloque o Client Id o Cliente Secret na seguinte parte do código de _social_login.py_:
 

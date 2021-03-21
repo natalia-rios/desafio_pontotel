@@ -62,3 +62,7 @@ https://pontotel-challenge.herokuapp.com/
 <h3>Executar aplicação</h3>
 
 `flask run`
+
+<h3>Executar testes</h3>
+
+`python tests.py`

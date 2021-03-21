@@ -2,11 +2,11 @@
 
 <h2>Aplicação web para cadastro de usuários utilizando flask-login</h2>
 
-<h3>Link Heroku:</h3> 
+<h3>Link Heroku</h3> 
 
 https://pontotel-challenge.herokuapp.com/
 
-<h3>Dados do cadastro:</h3>
+<h3>Dados do cadastro</h3>
 
 * nome
 * email
@@ -59,6 +59,6 @@ https://pontotel-challenge.herokuapp.com/
    `]`
 `)`
 
-<h3>Para executar aplicação:</h3>
+<h3>Executar aplicação</h3>
 
 `flask run`

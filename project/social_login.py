@@ -8,7 +8,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from . import db
 from .models import User, OAuth
 
-github_blueprint = make_github_blueprint(client_id = '444bb74d2138f007631c', client_secret = '9d7279c9964770eb1eeecd3b5692b0fbf24e4275')
+github_blueprint = make_github_blueprint(client_id = '0faf759be7e3decb983e', client_secret = '2124c418cc729369baf93192d596c7ac204c78b8')
 
 google_blueprint = make_google_blueprint(client_id= "911164170871-eqppf9t37qndjt6mhnkj081gr3rj0ke2.apps.googleusercontent.com", client_secret= "21vQunK4GT1zmg2YRKDUq_xg",  scope=[
         "openid",

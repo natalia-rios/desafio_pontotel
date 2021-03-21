@@ -56,5 +56,6 @@
    `]`
 `)`
 
-<h3>Executar aplicação**:</h3>
+<h3>Executar aplicação:</h3>
+
 `flask run`

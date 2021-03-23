@@ -1,6 +1,6 @@
 <h1>Cadastro Usuário Web</h1>
 
-<h2>Aplicação web para cadastro de usuários utilizando flask-login</h2>
+<h2>Aplicação web para cadastro de usuários utilizando flask-login e flask-dance</h2>
 
 <h3>Link Heroku</h3> 
 
